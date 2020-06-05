@@ -16,7 +16,9 @@ const Todos = () => {
       <div>
         <header className={s.header}>
           <h4 className={s.name}>To Do</h4>
-          <Button onClick={() => toggleNewTodoForm()}>+ New</Button>
+          <Button onClick={() => toggleNewTodoForm()}>
+            {newTodoFormVisible ? "Close" : "Add Todo"}
+          </Button>
         </header>
 
         <ul className={s.list}>
