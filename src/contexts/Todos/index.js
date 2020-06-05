@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useReducer } from "react";
+import React, { createContext, useContext, useReducer, useEffect } from "react";
 
 const storeContext = createContext();
 const dispatchContext = createContext();
@@ -24,6 +24,14 @@ const TODOS = [
   },
 ];
 
+let initialState = {
+  todos: TODOS,
+};
+
+try {
+  initialState = JSON.parse(localStorage.getItem("todos") || initialState);
+} catch {}
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "SET_TODOS": {
@@ -38,13 +46,12 @@ const reducer = (state, action) => {
   }
 };
 
-export const TodosProvider = ({
-  children,
-  initialState = {
-    todos: TODOS,
-  },
-}) => {
+export const TodosProvider = ({ children }) => {
   const [store, dispatch] = useReducer(reducer, initialState);
+
+  useEffect(() => {
+    localStorage.setItem("todos", JSON.stringify(store));
+  }, [store]);
 
   return (
     <dispatchContext.Provider value={dispatch}>
