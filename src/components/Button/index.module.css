@@ -1,0 +1,15 @@
+.button {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  background-color: #f1f1f1;
+  color: #000;
+}
+
+.buttonDisabled {
+  cursor: not-allowed;
+  color: #999;
+}
