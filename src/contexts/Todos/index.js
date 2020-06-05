@@ -1,23 +1,24 @@
 import React, { createContext, useContext, useReducer, useEffect } from "react";
+import { v4 as uuidv4 } from "uuid";
 
 const storeContext = createContext();
 const dispatchContext = createContext();
 
 const TODOS = [
   {
-    id: 1,
+    id: uuidv4(),
     text: "Walk the dog",
     finished: false,
     favorite: false,
   },
   {
-    id: 2,
+    id: uuidv4(),
     text: "Make the bed",
     finished: false,
     favorite: false,
   },
   {
-    id: 3,
+    id: uuidv4(),
     text: "Feed the cats",
     finished: false,
     favorite: false,

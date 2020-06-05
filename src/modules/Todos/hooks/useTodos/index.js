@@ -1,6 +1,5 @@
+import { v4 as uuidv4 } from "uuid";
 import { useStore, useDispatch } from "../../../../contexts/Todos";
-
-let nextId = 4;
 
 export const useTodos = () => {
   const { todos } = useStore();
@@ -31,7 +30,7 @@ export const useTodos = () => {
 
   const addTodo = (todoInput) => {
     const todo = {
-      id: nextId++,
+      id: uuidv4(),
       ...todoInput,
     };
     setTodos([todo, ...todos]);

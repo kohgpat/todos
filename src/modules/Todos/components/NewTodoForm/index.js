@@ -12,6 +12,7 @@ const NewTodoForm = () => {
     e.preventDefault();
 
     addTodo(todo);
+    changeTodoText('');
   };
 
   return (
@@ -21,6 +22,7 @@ const NewTodoForm = () => {
         type="text"
         value={todo.text}
         onChange={(e) => changeTodoText(e.target.value)}
+        placeholder="Enter todo"
       />
       <Button disabled={!todo.text}>Add</Button>
     </form>
