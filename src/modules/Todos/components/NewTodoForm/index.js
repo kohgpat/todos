@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import Button from "../../../../components/Button";
 import s from "./index.module.css";
 import { useTodos } from "../../hooks/useTodos";
@@ -7,6 +7,7 @@ import { useNewTodo } from "../../hooks/useNewTodo";
 const NewTodoForm = () => {
   const { addTodo } = useTodos();
   const { todo, changeTodoText } = useNewTodo();
+  const inputRef = useRef();
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -15,9 +16,14 @@ const NewTodoForm = () => {
     changeTodoText("");
   };
 
+  useEffect(() => {
+    inputRef.current.focus();
+  }, []);
+
   return (
     <form className={s.form} onSubmit={onSubmit}>
       <input
+        ref={inputRef}
         className={s.input}
         type="text"
         value={todo.text}
