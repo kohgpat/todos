@@ -31,16 +31,14 @@ const Todos = () => {
                 removeTodo={removeTodo}
               />
             ))}
-
-            {newTodoFormVisible && (
-              <NewTodoForm closeForm={toggleNewTodoForm} />
-            )}
           </ul>
         )}
 
         {todos.length === 0 && (
           <div className={s.emptyTodosMessage}>No more todos.</div>
         )}
+
+        {newTodoFormVisible && <NewTodoForm closeForm={toggleNewTodoForm} />}
       </div>
     </Screen>
   );
