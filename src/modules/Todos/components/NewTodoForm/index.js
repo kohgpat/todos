@@ -5,7 +5,7 @@ import s from "./index.module.css";
 import { useTodos } from "../../hooks/useTodos";
 import { useNewTodo } from "../../hooks/useNewTodo";
 
-const NewTodoForm = () => {
+const NewTodoForm = ({ closeForm }) => {
   const { addTodo } = useTodos();
   const { todo, changeTodoText } = useNewTodo();
   const [validationFailed, setValidationFailed] = useState(false);
@@ -45,9 +45,16 @@ const NewTodoForm = () => {
         onChange={onChangeText}
         placeholder="Enter todo"
       />
-      <Button disabled={!todo.text} type="submit">
-        Add
-      </Button>
+
+      <div className={s.controls}>
+        <Button disabled={!todo.text} type="submit" className={s.control}>
+          Add
+        </Button>
+
+        <Button type="button" className={s.control} onClick={closeForm}>
+          Cancel
+        </Button>
+      </div>
     </form>
   );
 };

@@ -31,7 +31,7 @@ const Todos = () => {
             />
           ))}
 
-          {newTodoFormVisible && <NewTodoForm />}
+          {newTodoFormVisible && <NewTodoForm closeForm={toggleNewTodoForm} />}
         </ul>
       </div>
     </Screen>
