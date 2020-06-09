@@ -52,7 +52,7 @@ const NewTodoForm = ({ closeForm }) => {
         </Button>
 
         <Button type="button" className={s.control} onClick={closeForm}>
-          Cancel
+          Close
         </Button>
       </div>
     </form>
