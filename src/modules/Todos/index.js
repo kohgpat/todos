@@ -21,18 +21,26 @@ const Todos = () => {
           </Button>
         </header>
 
-        <ul className={s.list}>
-          {todos.map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              onCheck={onCheck}
-              removeTodo={removeTodo}
-            />
-          ))}
+        {todos.length > 0 && (
+          <ul className={s.list}>
+            {todos.map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                onCheck={onCheck}
+                removeTodo={removeTodo}
+              />
+            ))}
 
-          {newTodoFormVisible && <NewTodoForm closeForm={toggleNewTodoForm} />}
-        </ul>
+            {newTodoFormVisible && (
+              <NewTodoForm closeForm={toggleNewTodoForm} />
+            )}
+          </ul>
+        )}
+
+        {todos.length === 0 && (
+          <div className={s.emptyTodosMessage}>No more todos.</div>
+        )}
       </div>
     </Screen>
   );

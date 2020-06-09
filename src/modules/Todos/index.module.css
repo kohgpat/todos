@@ -20,3 +20,7 @@
 .list > * + * {
   margin-top: 1rem;
 }
+
+.emptyTodosMessage {
+  margin: 1rem;
+}
