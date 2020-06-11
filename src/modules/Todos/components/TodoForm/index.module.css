@@ -5,6 +5,10 @@
   border-radius: 0.25rem;
 }
 
+.formEditMode {
+  margin: 0;
+}
+
 .formValidationFailed {
   border-color: #e24f50;
   border-width: 2px;

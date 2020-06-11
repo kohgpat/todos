@@ -32,7 +32,11 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
 
   return (
     <form
-      className={cn(s.form, validationFailed && s.formValidationFailed)}
+      className={cn(
+        s.form,
+        validationFailed && s.formValidationFailed,
+        todoInput && s.formEditMode
+      )}
       onSubmit={handleSubmit}
     >
       <input
