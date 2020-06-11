@@ -24,7 +24,6 @@ export const useTodos = () => {
 
   const removeTodo = (todo) => {
     const todoIdx = todos.findIndex((t) => t.id === todo.id);
-
     setTodos([...todos.slice(0, todoIdx), ...todos.slice(todoIdx + 1)]);
   };
 
@@ -36,10 +35,16 @@ export const useTodos = () => {
     setTodos([todo, ...todos]);
   };
 
+  const updateTodo = (todo) => {
+    const todoIdx = todos.findIndex((t) => t.id === todo.id);
+    setTodos([...todos.slice(0, todoIdx), todo, ...todos.slice(todoIdx + 1)]);
+  };
+
   return {
     todos,
     onCheck,
     removeTodo,
     addTodo,
+    updateTodo,
   };
 };

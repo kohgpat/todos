@@ -1,11 +1,13 @@
 import { useState } from "react";
 
-export const useTodoForm = () => {
-  const [todo, setTodo] = useState({
-    text: "",
-    favorite: false,
-    finished: false,
-  });
+export const useTodoForm = ({ todo: todoInput }) => {
+  const [todo, setTodo] = useState(
+    todoInput || {
+      text: "",
+      favorite: false,
+      finished: false,
+    }
+  );
 
   const changeTodoText = (text) => {
     setTodo({
