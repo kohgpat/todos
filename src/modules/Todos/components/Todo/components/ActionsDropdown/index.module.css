@@ -1,0 +1,52 @@
+.actions {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.actionsToggle {
+  padding: 0;
+  flex-shrink: 0;
+  font-size: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #000;
+  margin-left: auto;
+}
+
+.actionsList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  border: 1px solid #f1f1f1;
+  border-radius: 0.25rem;
+  position: absolute;
+  top: 1.5rem;
+  right: 0;
+  overflow: hidden;
+}
+
+.actionsListItem {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.actionsListItem:not(:last-child) {
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.actionsListItemHighlighted {
+  background-color: #f1f1ff;
+}
+
+.actionsListItemControl {
+  background-color: #ffffff;
+  padding: 0.5rem;
+  width: 100%;
+}
