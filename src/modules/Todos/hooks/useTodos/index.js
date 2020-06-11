@@ -40,11 +40,19 @@ export const useTodos = () => {
     setTodos([...todos.slice(0, todoIdx), todo, ...todos.slice(todoIdx + 1)]);
   };
 
+  const toggleEditMode = (todo) => {
+    updateTodo({
+      ...todo,
+      editMode: !todo.editMode,
+    });
+  };
+
   return {
     todos,
     onCheck,
     removeTodo,
     addTodo,
     updateTodo,
+    toggleEditMode,
   };
 };

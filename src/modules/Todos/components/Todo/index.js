@@ -1,17 +1,19 @@
 import React from "react";
-import Checkbox from "../../../../components/Checkbox";
-import ActionsDropdown from "./components/ActionsDropdown";
-import s from "./index.module.css";
+import TodoShow from "./components/TodoShow";
+import TodoEdit from "./components/TodoEdit";
 
-const Todo = ({ todo, onCheck, removeTodo }) => {
+const Todo = ({ todo, onCheck, toggleEditMode, removeTodo }) => {
+  if (todo.editMode) {
+    return <TodoEdit todo={todo} />;
+  }
+
   return (
-    <div className={s.todo}>
-      <Checkbox checked={todo.finished} onClick={() => onCheck(todo)} />
-
-      <span className={s.text}>{todo.text}</span>
-
-      <ActionsDropdown todo={todo} removeTodo={removeTodo} />
-    </div>
+    <TodoShow
+      todo={todo}
+      onCheck={onCheck}
+      toggleEditMode={toggleEditMode}
+      removeTodo={removeTodo}
+    />
   );
 };
 

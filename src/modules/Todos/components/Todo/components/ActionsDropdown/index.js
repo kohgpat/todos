@@ -5,7 +5,7 @@ import { FiMoreHorizontal } from "react-icons/fi";
 import Button from "../../../../../../components/Button";
 import s from "./index.module.css";
 
-const ActionsDropdown = ({ todo, removeTodo }) => {
+const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
   return (
     <Downshift>
       {({
@@ -34,7 +34,11 @@ const ActionsDropdown = ({ todo, removeTodo }) => {
                     highlightedIndex === 0 && s.actionsListItemHighlighted
                   )}
                 >
-                  <Button type="button" className={s.actionsListItemControl}>
+                  <Button
+                    type="button"
+                    className={s.actionsListItemControl}
+                    onClick={() => toggleEditMode(todo)}
+                  >
                     Edit
                   </Button>
                 </li>

@@ -4,8 +4,8 @@ import Button from "../../../../components/Button";
 import s from "./index.module.css";
 import { useTodoForm } from "../../hooks/useTodoForm";
 
-const TodoForm = ({ onSubmit, closeForm }) => {
-  const { todo, changeTodoText } = useTodoForm();
+const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
+  const { todo, changeTodoText } = useTodoForm({ todo: todoInput });
   const [validationFailed, setValidationFailed] = useState(false);
   const inputRef = useRef();
 
@@ -46,7 +46,7 @@ const TodoForm = ({ onSubmit, closeForm }) => {
 
       <div className={s.controls}>
         <Button disabled={!todo.text} type="submit" className={s.control}>
-          Add
+          {todoInput ? "Save" : "Add"}
         </Button>
 
         <Button type="button" className={s.control} onClick={closeForm}>

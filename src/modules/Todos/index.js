@@ -8,7 +8,7 @@ import { useTodos } from "./hooks/useTodos";
 import { useNewTodoForm } from "./hooks/useNewTodoForm";
 
 const Todos = () => {
-  const { todos, onCheck, addTodo, removeTodo } = useTodos();
+  const { todos, onCheck, addTodo, toggleEditMode, removeTodo } = useTodos();
   const { newTodoFormVisible, toggleNewTodoForm } = useNewTodoForm();
 
   return (
@@ -16,7 +16,7 @@ const Todos = () => {
       <div>
         <header className={s.header}>
           <h4 className={s.name}>To Do</h4>
-          <Button onClick={() => toggleNewTodoForm()}>
+          <Button onClick={toggleNewTodoForm}>
             {newTodoFormVisible ? "Close" : "Add Todo"}
           </Button>
         </header>
@@ -29,6 +29,7 @@ const Todos = () => {
                 todo={todo}
                 onCheck={onCheck}
                 removeTodo={removeTodo}
+                toggleEditMode={toggleEditMode}
               />
             ))}
           </ul>
