@@ -8,7 +8,7 @@ import { useTodos } from "./hooks/useTodos";
 import { useNewTodoForm } from "./hooks/useNewTodoForm";
 
 const Todos = () => {
-  const { todos, onCheck, removeTodo } = useTodos();
+  const { todos, onCheck, addTodo, removeTodo } = useTodos();
   const { newTodoFormVisible, toggleNewTodoForm } = useNewTodoForm();
 
   return (
@@ -38,7 +38,9 @@ const Todos = () => {
           <div className={s.emptyTodosMessage}>No more todos.</div>
         )}
 
-        {newTodoFormVisible && <TodoForm closeForm={toggleNewTodoForm} />}
+        {newTodoFormVisible && (
+          <TodoForm onSubmit={addTodo} closeForm={toggleNewTodoForm} />
+        )}
       </div>
     </Screen>
   );

@@ -2,11 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import cn from "classnames";
 import Button from "../../../../components/Button";
 import s from "./index.module.css";
-import { useTodos } from "../../hooks/useTodos";
 import { useTodoForm } from "../../hooks/useTodoForm";
 
-const TodoForm = ({ closeForm }) => {
-  const { addTodo } = useTodos();
+const TodoForm = ({ onSubmit, closeForm }) => {
   const { todo, changeTodoText } = useTodoForm();
   const [validationFailed, setValidationFailed] = useState(false);
   const inputRef = useRef();
@@ -16,7 +14,7 @@ const TodoForm = ({ closeForm }) => {
     setValidationFailed(false);
   };
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     if (!todo.text) {
@@ -24,7 +22,7 @@ const TodoForm = ({ closeForm }) => {
       return;
     }
 
-    addTodo(todo);
+    onSubmit(todo);
     changeTodoText("");
   };
 
@@ -35,7 +33,7 @@ const TodoForm = ({ closeForm }) => {
   return (
     <form
       className={cn(s.form, validationFailed && s.formValidationFailed)}
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit}
     >
       <input
         ref={inputRef}
