@@ -5,7 +5,7 @@ import s from "./index.module.css";
 import { useTodos } from "../../hooks/useTodos";
 import { useNewTodo } from "../../hooks/useNewTodo";
 
-const NewTodoForm = ({ closeForm }) => {
+const TodoForm = ({ closeForm }) => {
   const { addTodo } = useTodos();
   const { todo, changeTodoText } = useNewTodo();
   const [validationFailed, setValidationFailed] = useState(false);
@@ -59,4 +59,4 @@ const NewTodoForm = ({ closeForm }) => {
   );
 };
 
-export default NewTodoForm;
+export default TodoForm;

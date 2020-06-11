@@ -2,7 +2,7 @@ import React from "react";
 import Screen from "../../components/Screen";
 import Button from "../../components/Button";
 import Todo from "./components/Todo";
-import NewTodoForm from "./components/NewTodoForm";
+import TodoForm from "./components/TodoForm";
 import s from "./index.module.css";
 import { useTodos } from "./hooks/useTodos";
 import { useNewTodoForm } from "./hooks/useNewTodoForm";
@@ -38,7 +38,7 @@ const Todos = () => {
           <div className={s.emptyTodosMessage}>No more todos.</div>
         )}
 
-        {newTodoFormVisible && <NewTodoForm closeForm={toggleNewTodoForm} />}
+        {newTodoFormVisible && <TodoForm closeForm={toggleNewTodoForm} />}
       </div>
     </Screen>
   );
