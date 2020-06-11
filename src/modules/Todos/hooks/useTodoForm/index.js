@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useNewTodo = () => {
+export const useTodoForm = () => {
   const [todo, setTodo] = useState({
     text: "",
     favorite: false,

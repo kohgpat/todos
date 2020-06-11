@@ -3,11 +3,11 @@ import cn from "classnames";
 import Button from "../../../../components/Button";
 import s from "./index.module.css";
 import { useTodos } from "../../hooks/useTodos";
-import { useNewTodo } from "../../hooks/useNewTodo";
+import { useTodoForm } from "../../hooks/useTodoForm";
 
 const TodoForm = ({ closeForm }) => {
   const { addTodo } = useTodos();
-  const { todo, changeTodoText } = useNewTodo();
+  const { todo, changeTodoText } = useTodoForm();
   const [validationFailed, setValidationFailed] = useState(false);
   const inputRef = useRef();
 
