@@ -6,6 +6,21 @@
   display: flex;
 }
 
+.todoRemoving {
+  animation: fadeOutUp 250ms;
+}
+
 .text {
   margin-left: 1rem;
+}
+
+@keyframes fadeOutUp {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+    transform: translate3d(0, -20%, 0);
+  }
 }

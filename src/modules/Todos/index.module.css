@@ -23,4 +23,15 @@
 
 .emptyTodosMessage {
   margin: 1rem;
+  animation: fadeIn 250ms;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
