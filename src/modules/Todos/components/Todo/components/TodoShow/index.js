@@ -23,7 +23,13 @@ const TodoShow = ({
   };
 
   return (
-    <div className={cn(s.todo, removing && s.todoRemoving)}>
+    <div
+      className={cn(
+        s.todo,
+        removing && s.todoRemoving,
+        todo.finished && s.todoFinished
+      )}
+    >
       <Checkbox checked={todo.finished} onClick={() => toggleCheck(todo)} />
 
       <span className={s.text}>{todo.text}</span>

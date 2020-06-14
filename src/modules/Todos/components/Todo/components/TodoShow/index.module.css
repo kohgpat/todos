@@ -7,12 +7,22 @@
   align-items: center;
 }
 
+.todoFinished > .text {
+  opacity: 0.5;
+}
+
+.todoFinished:hover > .text,
+.todoFinished:hover > .text,
+.todoFinished:hover > .text {
+  opacity: 1;
+}
+
 .todoRemoving {
   animation: fadeOutUp 250ms;
 }
 
 .text {
-  margin-left: 1rem;
+  margin: 0 1rem;
 }
 
 .favoriteToggle {
