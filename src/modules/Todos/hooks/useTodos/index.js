@@ -9,7 +9,7 @@ export const useTodos = () => {
     dispatch({ type: "SET_TODOS", todos });
   };
 
-  const onCheck = (todo) => {
+  const toggleCheck = (todo) => {
     const todoIdx = todos.findIndex((t) => t.id === todo.id);
 
     setTodos([
@@ -47,12 +47,20 @@ export const useTodos = () => {
     });
   };
 
+  const toggleFavorite = (todo) => {
+    updateTodo({
+      ...todo,
+      favorite: !todo.favorite,
+    });
+  };
+
   return {
     todos,
-    onCheck,
+    toggleCheck,
     removeTodo,
     addTodo,
     updateTodo,
     toggleEditMode,
+    toggleFavorite,
   };
 };

@@ -2,7 +2,13 @@ import React from "react";
 import TodoShow from "./components/TodoShow";
 import TodoEdit from "./components/TodoEdit";
 
-const Todo = ({ todo, onCheck, toggleEditMode, removeTodo }) => {
+const Todo = ({
+  todo,
+  toggleCheck,
+  toggleEditMode,
+  toggleFavorite,
+  removeTodo,
+}) => {
   if (todo.editMode) {
     return <TodoEdit todo={todo} />;
   }
@@ -10,8 +16,9 @@ const Todo = ({ todo, onCheck, toggleEditMode, removeTodo }) => {
   return (
     <TodoShow
       todo={todo}
-      onCheck={onCheck}
+      toggleCheck={toggleCheck}
       toggleEditMode={toggleEditMode}
+      toggleFavorite={toggleFavorite}
       removeTodo={removeTodo}
     />
   );

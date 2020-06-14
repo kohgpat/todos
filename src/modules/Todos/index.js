@@ -8,7 +8,14 @@ import { useTodos } from "./hooks/useTodos";
 import { useNewTodoForm } from "./hooks/useNewTodoForm";
 
 const Todos = () => {
-  const { todos, onCheck, addTodo, toggleEditMode, removeTodo } = useTodos();
+  const {
+    todos,
+    toggleCheck,
+    toggleEditMode,
+    toggleFavorite,
+    addTodo,
+    removeTodo,
+  } = useTodos();
   const { newTodoFormVisible, toggleNewTodoForm } = useNewTodoForm();
 
   return (
@@ -27,9 +34,10 @@ const Todos = () => {
               <Todo
                 key={todo.id}
                 todo={todo}
-                onCheck={onCheck}
+                toggleCheck={toggleCheck}
                 removeTodo={removeTodo}
                 toggleEditMode={toggleEditMode}
+                toggleFavorite={toggleFavorite}
               />
             ))}
           </ul>
