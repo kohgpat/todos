@@ -30,6 +30,7 @@ export const useTodos = () => {
   const addTodo = (todoInput) => {
     const todo = {
       id: uuidv4(),
+      created: new Date(),
       ...todoInput,
     };
     setTodos([todo, ...todos]);
@@ -54,8 +55,18 @@ export const useTodos = () => {
     });
   };
 
+  const sortTodos = (a, b) => {
+    if (a.favorite && !b.favorite) {
+      return - 1;
+    } else if (b.favorite && !a.favorite) {
+      return 1;
+    }
+
+    return a.created - b.created;
+  };
+
   return {
-    todos,
+    todos: todos.sort(sortTodos),
     toggleCheck,
     removeTodo,
     addTodo,

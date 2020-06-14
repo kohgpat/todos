@@ -10,18 +10,21 @@ const TODOS = [
     text: "Walk the dog",
     finished: false,
     favorite: false,
+    created: new Date(),
   },
   {
     id: uuidv4(),
     text: "Make the bed",
     finished: false,
     favorite: false,
+    created: new Date(),
   },
   {
     id: uuidv4(),
     text: "Feed the cats",
     finished: false,
     favorite: false,
+    created: new Date(),
   },
 ];
 
