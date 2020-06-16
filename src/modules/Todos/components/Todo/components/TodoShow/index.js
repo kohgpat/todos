@@ -36,7 +36,10 @@ const TodoShow = ({
 
       <button
         type="button"
-        className={s.favoriteToggle}
+        className={cn(
+          s.favoriteToggle,
+          todo.favorite && s.favoriteToggleActive
+        )}
         onClick={() => toggleFavorite(todo)}
       >
         {todo.favorite ? <TiStar /> : <TiStarOutline />}
