@@ -39,10 +39,9 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
       )}
       onSubmit={handleSubmit}
     >
-      <input
+      <textarea
         ref={inputRef}
-        className={s.input}
-        type="text"
+        className={s.textarea}
         value={todo.text}
         onChange={onChangeText}
         placeholder="Enter todo"
