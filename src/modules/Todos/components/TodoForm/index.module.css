@@ -30,6 +30,11 @@
   resize: vertical;
 }
 
+.textarea:focus {
+  border-color: #20B5F9;
+  color: #ffffff;
+}
+
 .controls {
   margin-top: 1rem;
 }
