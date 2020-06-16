@@ -1,12 +1,20 @@
 import React from "react";
 import cn from "classnames";
+import { useTheme } from "../../contexts/Theme";
 import s from "./index.module.css";
 
 const Button = ({ children, disabled, className, type, onClick }) => {
+  const theme = useTheme();
+
   return (
     <button
       type={type}
-      className={cn(s.button, disabled && s.buttonDisabled, className)}
+      className={cn(
+        s.button,
+        disabled && s.buttonDisabled,
+        theme === "dark" && s.buttonDark,
+        className
+      )}
       onClick={onClick}
     >
       {children}

@@ -23,10 +23,12 @@
   cursor: pointer;
 }
 
-.checkbox > input:checked {
-  /* border: 2px solid #1daafa;
-  color: #ffffff; */
+.checkboxDark > input {
+  background-color: #fffffff0;
 }
+
+/* .checkbox > input:checked {
+} */
 
 .checkbox > input:checked + span::before {
   content: "\2713";
@@ -42,6 +44,5 @@
 
 .checkbox > input:focus,
 .checkbox > input:hover {
-  /* border: 2px solid #34495e; */
   border: 2px solid #1daafa;
 }

@@ -1,10 +1,13 @@
 import React, { useRef, useState, useEffect } from "react";
 import cn from "classnames";
+import { useTheme } from "../../../../contexts/Theme";
 import Button from "../../../../components/Button";
 import s from "./index.module.css";
 import { useTodoForm } from "../../hooks/useTodoForm";
 
 const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
+  const theme = useTheme();
+
   const { todo, changeTodoText } = useTodoForm({ todo: todoInput });
   const [validationFailed, setValidationFailed] = useState(false);
   const inputRef = useRef();
@@ -35,13 +38,14 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
       className={cn(
         s.form,
         validationFailed && s.formValidationFailed,
-        todoInput && s.formEditMode
+        todoInput && s.formEditMode,
+        theme === "dark" && s.formDark
       )}
       onSubmit={handleSubmit}
     >
       <textarea
         ref={inputRef}
-        className={s.textarea}
+        className={cn(s.textarea, theme === "dark" && s.textareaDark)}
         value={todo.text}
         onChange={onChangeText}
         placeholder="Enter todo"

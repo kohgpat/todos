@@ -2,10 +2,13 @@ import React from "react";
 import cn from "classnames";
 import Downshift from "downshift";
 import { FiMoreHorizontal } from "react-icons/fi";
+import { useTheme } from "../../../../../../contexts/Theme";
 import Button from "../../../../../../components/Button";
 import s from "./index.module.css";
 
 const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
+  const theme = useTheme();
+
   return (
     <Downshift>
       {({
@@ -17,12 +20,24 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
       }) => {
         return (
           <div className={s.actions}>
-            <Button {...getToggleButtonProps()} className={s.actionsToggle}>
+            <Button
+              {...getToggleButtonProps()}
+              className={cn(
+                s.actionsToggle,
+                theme === "dark" && s.actionsToggleDark
+              )}
+            >
               <FiMoreHorizontal />
             </Button>
 
             {isOpen ? (
-              <ul {...getMenuProps()} className={s.actionsList}>
+              <ul
+                {...getMenuProps()}
+                className={cn(
+                  s.actionsList,
+                  theme === "dark" && s.actionsListDark
+                )}
+              >
                 <li
                   {...getItemProps({
                     key: "edit",
@@ -31,6 +46,7 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
                   })}
                   className={cn(
                     s.actionsListItem,
+                    theme === "dark" && s.actionsListItemDark,
                     highlightedIndex === 0 && s.actionsListItemHighlighted
                   )}
                 >
@@ -38,7 +54,8 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
                     type="button"
                     className={cn(
                       s.actionsListItemControl,
-                      s.actionsListItemControlTop
+                      s.actionsListItemControlTop,
+                      theme === "dark" && s.actionsListItemControlDark
                     )}
                     onClick={() => toggleEditMode(todo)}
                   >
@@ -54,14 +71,17 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
                   })}
                   className={cn(
                     s.actionsListItem,
-                    highlightedIndex === 1 && s.actionsListItemHighlighted
+                    highlightedIndex === 1 && theme === "dark"
+                      ? s.actionsListItemHighlightedDark
+                      : s.actionsListItemHighlighted
                   )}
                 >
                   <Button
                     type="button"
                     className={cn(
                       s.actionsListItemControl,
-                      s.actionsListItemControlBottom
+                      s.actionsListItemControlBottom,
+                      theme === "dark" && s.actionsListItemControlDark
                     )}
                     onClick={() => removeTodo(todo)}
                   >

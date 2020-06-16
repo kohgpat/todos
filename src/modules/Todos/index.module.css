@@ -6,8 +6,16 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
+.headerDark {
+  border-bottom: 1px solid #0f1114;
+}
+
 .name {
   margin: 0;
+}
+
+.headerDark > .name {
+  color: #ffffffe0;
 }
 
 .list {
@@ -17,6 +25,10 @@
   border-bottom: 1px solid #f1f1f1;
 }
 
+.listDark {
+  border-bottom: 1px solid #0f1114;
+}
+
 .list > * + * {
   margin-top: 1rem;
 }
@@ -24,6 +36,10 @@
 .emptyTodosMessage {
   margin: 1rem;
   animation: fadeIn 250ms;
+}
+
+.emptyTodosMessageDark {
+  color: #ffffffe0;
 }
 
 @keyframes fadeIn {

@@ -9,6 +9,11 @@
   color: #000;
 }
 
+.buttonDark {
+  background-color: #0f1114;
+  color: #ffffffe0;
+}
+
 .button:hover,
 .button:focus {
   background-color: #20B5F9;

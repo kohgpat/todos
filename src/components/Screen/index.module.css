@@ -3,3 +3,7 @@
   height: 100vh;
   overflow-y: auto;
 }
+
+.screenDark {
+  background-color: #282c35;
+}

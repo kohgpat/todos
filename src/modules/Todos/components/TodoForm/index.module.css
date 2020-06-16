@@ -5,6 +5,10 @@
   border-radius: 0.25rem;
 }
 
+.formDark {
+  border: 1px solid #0f1114;
+}
+
 .formEditMode {
   margin: 0;
 }
@@ -31,6 +35,11 @@
   padding: 1rem;
   min-height: 3.2rem;
   resize: vertical;
+}
+
+.textareaDark {
+  background-color: #ffffffe0;
+  border: 1px solid #0f1114;
 }
 
 .textarea:focus {

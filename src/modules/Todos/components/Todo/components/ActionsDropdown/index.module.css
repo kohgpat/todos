@@ -19,6 +19,10 @@
   margin-left: auto;
 }
 
+.actionsToggleDark {
+  color: #ffffffe0;
+}
+
 .actionsList {
   list-style: none;
   margin: 0;
@@ -33,23 +37,44 @@
   z-index: 1;
 }
 
+.actionsListDark {
+  background-color: #0f1114;
+  border: 1px solid #0f1114;
+}
+
 .actionsListItem {
   background-color: #ffffff;
   cursor: pointer;
+}
+
+.actionsListItemDark {
+  background-color: #0f1114;
 }
 
 .actionsListItem:not(:last-child) {
   border-bottom: 1px solid #f1f1f1;
 }
 
+.actionsListItemDark:not(:last-child) {
+  border-bottom: 1px solid #0f1114;
+}
+
 .actionsListItemHighlighted {
   background-color: #f1f1ff;
+}
+
+.actionsListItemHighlightedDark {
+  background-color: #0f1114;
 }
 
 .actionsListItemControl {
   background-color: #ffffff;
   padding: 0.5rem;
   width: 100%;
+}
+
+.actionsListItemControlDark {
+  background-color: #0f1114;
 }
 
 .actionsListItemControlTop {

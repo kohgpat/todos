@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import cn from "classnames";
 import { TiStar, TiStarOutline } from "react-icons/ti";
+import { useTheme } from "../../../../../../contexts/Theme";
 import Checkbox from "../../../../../../components/Checkbox";
 import ActionsDropdown from "../ActionsDropdown";
 import s from "./index.module.css";
@@ -12,6 +13,8 @@ const TodoShow = ({
   toggleFavorite,
   removeTodo,
 }) => {
+  const theme = useTheme();
+
   const [removing, setRemoving] = useState(false);
 
   const handleRemove = (todo) => {
@@ -27,18 +30,22 @@ const TodoShow = ({
       className={cn(
         s.todo,
         removing && s.todoRemoving,
-        todo.finished && s.todoFinished
+        todo.finished && s.todoFinished,
+        theme === "dark" && s.todoDark
       )}
     >
       <Checkbox checked={todo.finished} onClick={() => toggleCheck(todo)} />
 
-      <span className={s.text}>{todo.text}</span>
+      <span className={cn(s.text, theme === "dark" && s.textDark)}>
+        {todo.text}
+      </span>
 
       <button
         type="button"
         className={cn(
           s.favoriteToggle,
-          todo.favorite && s.favoriteToggleActive
+          todo.favorite && s.favoriteToggleActive,
+          theme === "dark" && s.favoriteToggleDark
         )}
         onClick={() => toggleFavorite(todo)}
       >
