@@ -9,6 +9,17 @@
   color: #000;
 }
 
+.button:hover,
+.button:focus {
+  background-color: #20B5F9;
+  color: #ffffff;
+}
+
+.button:active {
+  background-color: #1daafa;
+  color: #ffffff;
+}
+
 .buttonDisabled {
   cursor: not-allowed;
   color: #999;
