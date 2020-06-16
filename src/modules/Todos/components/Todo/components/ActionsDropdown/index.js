@@ -36,7 +36,10 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
                 >
                   <Button
                     type="button"
-                    className={s.actionsListItemControl}
+                    className={cn(
+                      s.actionsListItemControl,
+                      s.actionsListItemControlTop
+                    )}
                     onClick={() => toggleEditMode(todo)}
                   >
                     Edit
@@ -56,7 +59,10 @@ const ActionsDropdown = ({ todo, toggleEditMode, removeTodo }) => {
                 >
                   <Button
                     type="button"
-                    className={s.actionsListItemControl}
+                    className={cn(
+                      s.actionsListItemControl,
+                      s.actionsListItemControlBottom
+                    )}
                     onClick={() => removeTodo(todo)}
                   >
                     Delete
