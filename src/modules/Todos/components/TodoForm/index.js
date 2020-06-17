@@ -52,7 +52,7 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
       />
 
       <div className={s.controls}>
-        <Button disabled={!todo.text} type="submit" className={s.control}>
+        <Button type="submit" className={s.control}>
           {todoInput ? "Save" : "Add"}
         </Button>
 
