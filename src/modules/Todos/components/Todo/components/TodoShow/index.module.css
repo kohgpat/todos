@@ -21,10 +21,6 @@
   opacity: 1;
 }
 
-.todoRemoving {
-  animation: fadeOutUp 250ms;
-}
-
 .text {
   margin: 0 1rem;
 }
@@ -58,15 +54,4 @@
 
 .favoriteToggleActive {
   color: #1daafa;
-}
-
-@keyframes fadeOutUp {
-  from {
-    opacity: 1;
-  }
-
-  to {
-    opacity: 0;
-    transform: translate3d(0, -20%, 0);
-  }
 }

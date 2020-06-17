@@ -15,6 +15,7 @@ const Button = ({ children, disabled, className, type, onClick }) => {
         theme === "dark" && s.buttonDark,
         className
       )}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}

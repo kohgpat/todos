@@ -33,7 +33,7 @@ export const useTodos = () => {
       created: new Date(),
       ...todoInput,
     };
-    setTodos([todo, ...todos]);
+    setTodos([...todos, todo]);
   };
 
   const updateTodo = (todo) => {

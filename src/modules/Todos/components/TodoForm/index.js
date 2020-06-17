@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import cn from "classnames";
+import { motion } from "framer-motion";
 import { useTheme } from "../../../../contexts/Theme";
 import Button from "../../../../components/Button";
 import s from "./index.module.css";
@@ -27,6 +28,7 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
 
     onSubmit(todo);
     changeTodoText("");
+    inputRef.current.focus();
   };
 
   useEffect(() => {
@@ -34,18 +36,22 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
   }, []);
 
   return (
-    <form
+    <motion.form
       className={cn(
         s.form,
         validationFailed && s.formValidationFailed,
         todoInput && s.formEditMode,
         theme === "dark" && s.formDark
       )}
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 20 }}
+      transition={{ duration: 0.3 }}
       onSubmit={handleSubmit}
     >
-      <textarea
+      <input
         ref={inputRef}
-        className={cn(s.textarea, theme === "dark" && s.textareaDark)}
+        className={cn(s.input, theme === "dark" && s.textareaDark)}
         value={todo.text}
         onChange={onChangeText}
         placeholder="Enter todo"
@@ -60,7 +66,7 @@ const TodoForm = ({ todo: todoInput, onSubmit, closeForm }) => {
           Close
         </Button>
       </div>
-    </form>
+    </motion.form>
   );
 };
 

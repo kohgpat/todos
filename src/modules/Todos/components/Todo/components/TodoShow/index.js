@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import cn from "classnames";
+import { motion } from "framer-motion";
 import { TiStar, TiStarOutline } from "react-icons/ti";
 import { useTheme } from "../../../../../../contexts/Theme";
 import Checkbox from "../../../../../../components/Checkbox";
@@ -15,24 +16,27 @@ const TodoShow = ({
 }) => {
   const theme = useTheme();
 
-  const [removing, setRemoving] = useState(false);
-
   const handleRemove = (todo) => {
-    setRemoving(true);
+    removeTodo(todo);
+  };
 
-    setTimeout(() => {
-      removeTodo(todo);
-    }, 240);
+  const variants = {
+    visible: { opacity: 1, y: 0 },
+    hidden: { opacity: 0, y: 20 }
   };
 
   return (
-    <div
+    <motion.div
       className={cn(
         s.todo,
-        removing && s.todoRemoving,
         todo.finished && s.todoFinished,
         theme === "dark" && s.todoDark
       )}
+      variants={variants}
+      // initial={{ opacity: 0, y: 20 }}
+      // animate={{ opacity: 1, y: 0 }}
+      // exit={{ opacity: 0, y: -20 }}
+      // transition={{ duration: 0.3 }}
     >
       <Checkbox checked={todo.finished} onClick={() => toggleCheck(todo)} />
 
@@ -57,7 +61,7 @@ const TodoShow = ({
         toggleEditMode={toggleEditMode}
         removeTodo={handleRemove}
       />
-    </div>
+    </motion.div>
   );
 };
 
