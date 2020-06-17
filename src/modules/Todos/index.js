@@ -51,6 +51,7 @@ const Todos = () => {
               className={cn(s.list, theme === "dark" && s.listDark)}
               initial="hidden"
               animate="visible"
+              exit="hidden"
               variants={variants}
             >
               {todos.map((todo) => (
@@ -68,14 +69,16 @@ const Todos = () => {
         </AnimatePresence>
 
         {todos.length === 0 && (
-          <div
+          <motion.div
             className={cn(
               s.emptyTodosMessage,
               theme === "dark" && s.emptyTodosMessageDark
             )}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0, transition: { delay: 0.3 } }}
           >
             No more todos.
-          </div>
+          </motion.div>
         )}
 
         <AnimatePresence>

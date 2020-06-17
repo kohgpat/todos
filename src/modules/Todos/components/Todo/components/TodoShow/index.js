@@ -22,7 +22,7 @@ const TodoShow = ({
 
   const variants = {
     visible: { opacity: 1, y: 0 },
-    hidden: { opacity: 0, y: 20 }
+    hidden: { opacity: 0, y: 20 },
   };
 
   return (
@@ -33,10 +33,6 @@ const TodoShow = ({
         theme === "dark" && s.todoDark
       )}
       variants={variants}
-      // initial={{ opacity: 0, y: 20 }}
-      // animate={{ opacity: 1, y: 0 }}
-      // exit={{ opacity: 0, y: -20 }}
-      // transition={{ duration: 0.3 }}
     >
       <Checkbox checked={todo.finished} onClick={() => toggleCheck(todo)} />
 
